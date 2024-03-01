@@ -1,0 +1,13 @@
+services:
+  ollama:
+    restart: always
+    image: whatwewant/ollama:${SERVICE_OLLAMA_IMAGE_VERSION}
+    environment:
+      PORT: $SERVICE_OLLAMA_PORT
+      USERNAME: ${SERVICE_OLLAMA_USERNAME}
+      PASSWORD: ${SERVICE_OLLAMA_PASSWORD}
+      
+networks:
+  default:
+    external: true
+    name: compose-ingress
